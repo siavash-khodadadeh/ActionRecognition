@@ -1,7 +1,7 @@
 % function readTrainAndTestSetKTH()
 % end
 tic;
-diary('readTrainAndTestSetKTH.log');
+diary('../logs/readTrainAndTestSetKTH.log');
 diary on;
 clc;
 clear;
@@ -9,8 +9,8 @@ delete(gcp('nocreate'));
 matlabpool open 16;
 addpath('../baseFunctions/Better_Understanding');
 addpath('../baseFunctions/Base_Functions');
-baseFileAddress ='videos';
-baseFeatureDataSetAddress = 'kthdata_3/';
+baseFileAddress ='../data/kthdataset_videos';
+baseFeatureDataSetAddress = '../data/kthdata/';
 gaussianFilterXSize = 13;
 gaussianFilterYSize = 13;
 taw = 1.5;
