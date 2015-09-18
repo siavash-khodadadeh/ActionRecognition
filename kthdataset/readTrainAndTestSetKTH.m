@@ -34,7 +34,6 @@ for i = 1:classesSize
     allFileAddresses = dir(baseClassFileAddress);
     allFileAddresses(1:2) = [];
     parfor j = 1:length(allFileAddresses)
-%     for j = 1:length(allFileAddresses)
 %    for j = 1:4
         [fid,err] = fopen(strcat(baseFeatureDataSetAddress,classes{i},'/',classes{i},'_',num2str(j),'.table'));
         if ~isempty(err)
@@ -43,20 +42,21 @@ for i = 1:classesSize
             localMaximumXSize = 3;
             localMaximumYSize = 3;
             localMaximumTimeSize = 3;
-            dataXSize = 13;%How many pixels are needed for descriptor around interest point in x direction
-            dataYSize = 13;%How many pixels are needed for descriptor around interest point in y direction
-            dataZSize = 10;%How many pixels are needed for descriptor around interest point in z direction
+            dataXSize = 13; %How many pixels are needed for descriptor around interest point in x direction
+            dataYSize = 13; %How many pixels are needed for descriptor around interest point in y direction
+            dataZSize = 10; %How many pixels are needed for descriptor around interest point in z direction
             [dataSet,interestFrameNumbers,interestPointValues] = readAMovieAndApplyFilter200Features(fileAddress,gaussianFilterXSize,gaussianFilterYSize,taw,omega,timeFilterSize,localMaximumXSize,localMaximumYSize,localMaximumTimeSize,dataXSize,dataYSize,dataZSize);
 %             save(strcat(baseFeatureDataSetAddress,classes{i},'/',classes{i},'_',num2str(j),'.table'),'dataSet','-ascii');
 %             save(strcat(baseFeatureDataSetAddress,classes{i},'/',classes{i},'_',num2str(j),'.timedata'),'interestFrameNumbers','-ascii');
 %             save(strcat(baseFeatureDataSetAddress,classes{i},'/',classes{i},'_',num2str(j),'.pointvalues'),'interestPointValues','-ascii');
-            saveAllData(baseFeatureDataSetAddress,classes{i},j,dataSet,interestFrameNumbers,interestPointValues);
+            saveAllData(baseFeatureDataSetAddress, classes{i}, j, dataSet, interestFrameNumbers, interestPointValues);
         end
     end
 %      delete(gcp('nocreate'));
 end
 delete(gcp('nocreate'));
 diary off;
+
 % firstFileNum = 101;
 % lastFileNum = 326;
 % allFileAddresses = dir(baseFileAddress);
