@@ -32,7 +32,7 @@ for k = 1:length(videoClasses)
             end
         end
         videoTimeData = sortrows(videoTimeData, 2);
-        basicSave(strcat('../data/word2vec_data/', videoClasses{k}, '/',allFiles(w).name), 'videoTimeData', true)
+        basicSave(strcat('../data/word2vec_data/', videoClasses{k}, '/',allFiles(w).name), videoTimeData, true)
     end
 end
 delete(gcp('nocreate'));
