@@ -16,6 +16,7 @@ for k = 1:length(videoClasses)
 	[fid, err] = fopen(strcat('../data/word2vec_data/', videoClasses{k}, '/',allFiles(w).name));
 	if isempty(err)
 		fclose(fid);
+		fprintf('The file %s exists.\n', allFiles(w).name);
 		continue;
 	end
         videoAddress = allFiles(w).name;
