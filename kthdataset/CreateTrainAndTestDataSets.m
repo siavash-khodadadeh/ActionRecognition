@@ -16,7 +16,7 @@ for i = 1:length(tempclasses)
 end
 
 %this part is 10 fold cross validation
-numberOfFolds = 10;
+numberOfFolds = 25;
 delete(gcp('nocreate'));
 matlabpool open 16;
 parfor i = 1:numberOfFolds
