@@ -113,7 +113,7 @@ parfor i = 1:numberOfFolds
     trainClasses = finalClasses(allTrainNumbers, :);
     testData = finalData(allTestNumbers, :);
     testClasses = finalClasses(allTestNumbers, :);
-    saveFoldData(trainData, trainClasses, testData, testClasses, clusters, temp, i);
+    saveFoldData(trainData, trainClasses, testData, testClasses, clusters, temp, coeff, i);
 %     save(strcat('fold',num2str(i),'.trainData'),'trainData');
 %     save(strcat('fold',num2str(i),'.trainClasses'),'trainClasses');
 %     save(strcat('fold',num2str(i),'.testData'),'testData');
