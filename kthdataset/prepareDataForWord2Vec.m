@@ -1,7 +1,7 @@
 clear;
 clc;
-clusterDataAddress = '../data/all_folds/25-folds-correct/fold1.clusters';
-pcaCoeffAddress = '../data/all_folds/25-folds-correct/fold1.pcaCoeffData';
+clusterDataAddress = '../data/all_folds/fold1.clusters';
+pcaCoeffAddress = '../data/all_folds/fold1.pcaCoeffData';
 videoBaseAddress = '../data/dataset/';
 videoClasses = {'boxing', 'handclapping', 'handwaving', 'jogging', 'running', 'walking'};
 clusterData = importdata(clusterDataAddress);
@@ -31,3 +31,4 @@ for k = 1:length(videoClasses)
     end
 end
 delete(gcp('nocreate'));
+
