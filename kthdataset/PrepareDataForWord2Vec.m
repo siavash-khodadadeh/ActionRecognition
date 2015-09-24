@@ -13,6 +13,11 @@ for k = 1:length(videoClasses)
     allFiles(1:2) = [];
     parfor w = 1:size(allFiles, 1)
 %         fprintf('filename is %s\n', allFiles(w).name);
+	[fid, err] = fopen(strcat('../data/word2vec_data/', videoClasses{k}, '/',allFiles(w).name));
+	if isempty(err)
+		fclose(fid);
+		continue;
+	end
         videoAddress = allFiles(w).name;
         videoData = importdata(strcat(videoBaseAddress, videoClasses{k}, '/', videoAddress));
         videoDataPca = double(videoData(:, 2:1691)) * pcaCoeff;
