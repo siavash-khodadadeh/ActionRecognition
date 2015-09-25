@@ -37,4 +37,3 @@ for k = 1:length(videoClasses)
     end
 end
 delete(gcp('nocreate'));
-
