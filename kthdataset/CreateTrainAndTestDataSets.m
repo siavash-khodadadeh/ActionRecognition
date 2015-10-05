@@ -43,7 +43,7 @@ parfor i = 1:numberOfFolds
         k = [];
         for k = 1:length(trainSetNumbers)
             data = importdata(strcat(baseDataSetAddress, classes{j}.name, '/', allFiles(trainSetNumbers(k)).name));
-            trainSet = [trainSet;data];
+            trainSet = [trainSet; data];
             fprintf('%.3f percent of train videos completed\nClass = %s\n', k / length(trainSetNumbers) * 100, classes{j}.name);
         end
         for k = 1:length(testSetNumbers)
@@ -113,7 +113,7 @@ parfor i = 1:numberOfFolds
     trainClasses = finalClasses(allTrainNumbers, :);
     testData = finalData(allTestNumbers, :);
     testClasses = finalClasses(allTestNumbers, :);
-    saveFoldData(trainData, trainClasses, testData, testClasses, clusters, temp, coeff, i);
+    saveFoldData(trainData, trainClasses, testData, testClasses, clusters, temp, coeff, videoNumbers, testVideoNumbers, i);
 %     save(strcat('fold',num2str(i),'.trainData'),'trainData');
 %     save(strcat('fold',num2str(i),'.trainClasses'),'trainClasses');
 %     save(strcat('fold',num2str(i),'.testData'),'testData');
